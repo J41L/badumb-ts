@@ -1,22 +1,11 @@
-/*
- * Create and export configuration varibles
- */
+const fs = require('fs');
 
-let environments = {};
+const httpsServerOptions = {
+    key: fs.readFileSync(`${__dirname}/https/key.pem`),
+    cert: fs.readFileSync(`${__dirname}/https/cert.pem`),
+};
 
-environments.development = {
-    port: 3000,
-    envName: 'development',
+module.exports = {
+    config: require(`.config/${process.env.NODE_ENV?.toLowerCase() || 'staging'}`),
+    httpsServerOptions: httpsServerOptions,
 }
-
-environments.staging = {
-    port: parseInt(process.env.PORT) || 3000,
-    envName: 'staging',
-};
-
-environments.production = {
-    port: parseInt(process.env.PORT) || 5000,
-    envName: 'production',
-};
-
-module.exports = environments[process.env.NODE_ENV?.toLowerCase() || 'staging'];
