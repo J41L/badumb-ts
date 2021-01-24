@@ -28,6 +28,13 @@ Only node core libs and typescript to be used to build this - all other choices
 are up to the user.
 #### There is no HTTP
 Https only, thank you.
+#### Programmers write programs, not web applications
+A user should be able to write a program, completely agnostic of the origin
+of input data and with minimal effort, connect them to the API they have built,
+rather than writing a program within an application which forces them to structure 
+it in a particular way.
+##### Deployment target agnostic
+Make a monolith. Make a set of microservices. Make a set of serverless functions.
 
 ## Todo
 - Change to https, remove http.
@@ -39,3 +46,5 @@ Https only, thank you.
 - Add handler generators.
 - Add the basic CLI.
 - Tests!!!
+##### Future
+- Compiler targeting and Tree shaking for serverless deploys.
